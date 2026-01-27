@@ -167,7 +167,7 @@ const Header: React.FC = () => {
                         strokeWidth={32}
                       />
                     </svg>
-                    &gt;Compare
+                    Compare
                   </a>
                 </li>
               </ul>
@@ -602,7 +602,7 @@ const Header: React.FC = () => {
                         />
                       </svg>
                     </span>
-                    <span className="visually-hidden">Wishlist</span>
+                    <span className="visually-hidden">&nbsp; Wishlist</span>
                   </a>
                 </li>
                 <li className="header__account--items">
@@ -922,7 +922,7 @@ const Header: React.FC = () => {
                 </svg>
               </span>
               <span className="offcanvas__sticky--toolbar__label">
-                Wishlist
+                &nbsp; Wishlist
               </span>
               <span className="items__count">3</span>
             </a>
