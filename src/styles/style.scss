@@ -1,0 +1,90 @@
+/*
+  Template Name: Becute - Jewelry, Cosmetics and Beauty eCommerce HTML Template
+  Author Name: Hook theme
+  Author URL: https://themeforest.net/user/hooktheme
+  Version: 1.0.0
+
+  ----------------------------
+  [Table of contents CSS] 
+  ----------------------------
+
+    1. Base CSS
+    2. Header css
+    3. Slider css
+    4. Banner css 
+    5. Product card css 
+    6. Collection css
+    7. Shipping css
+    8. Blog css
+    9. Testimonial css
+    10. Brand logo css
+    11. Accordion css
+    12. Footer css 
+    13. Quickview css
+    14. Small Product css
+    15. Single Product css 
+    16. Product details css 
+    17. Shop page css 
+    18. Privacy policy css
+    19. Preloader css 
+    20. Portfolio css
+    21. Newsletter css 
+    22. Newsletter popup css
+    23. My account page css 
+    24. Login page css
+    25. Faq page css 
+    26. Counterup css here
+    27. Contact page css
+    28. Compare page css 
+    29. Checkout Page Css
+    30. Cart page css
+    31. Breadcrumb css 
+    32. Blog details css
+    33. About page css
+    34. Error 404 page css 
+    35. Other section css
+
+*/
+
+@use 'global';
+@use 'elements/header';
+@use 'elements/slider';
+@use 'elements/collection';
+@use 'elements/product';
+@use 'elements/small-product';
+@use 'elements/single-product';
+@use 'elements/banner';
+@use 'elements/blog';
+@use 'elements/testimonial';
+@use 'elements/feature';
+@use 'elements/newsletter';
+@use 'elements/footer';
+@use 'elements/quickview';
+@use 'elements/lookbook';
+@use 'elements/accordion';
+@use 'elements/portfolio';
+@use 'elements/brand-logo';
+@use 'elements/breadcrumb';
+@use 'elements/shop';
+@use 'elements/about';
+@use 'elements/counterup';
+@use 'elements/product-details';
+@use 'elements/blog-details';
+@use 'elements/contact';
+@use 'elements/cart-page';
+@use 'elements/checkout';
+@use 'elements/my-account';
+@use 'elements/404' as error404;
+@use 'elements/login';
+@use 'elements/compare';
+@use 'elements/faq';
+@use 'elements/preloader';
+@use 'elements/privacy-policy';
+@use 'elements/newsletter-popup';
+@use 'elements/other';
+@use 'elements/instagram';
+@use 'elements/parallax';
+
+
+
+
