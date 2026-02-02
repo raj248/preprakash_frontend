@@ -1,19 +1,35 @@
 import React from "react";
-import Preloader from "./components/common/Preloader";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-// import Footer from './components/layout/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
+
+// Placeholder components for pages (You will create these in src/pages/)
+const Shop = () => (
+  <div className="container py-5">
+    <h1>Shop Page Content</h1>
+  </div>
+);
+const NotFound = () => (
+  <div className="container py-5">
+    <h1>404 - Not Found</h1>
+  </div>
+);
 
 const App: React.FC = () => {
   return (
-    <>
-      <Preloader />
-      <Header />
+    <BrowserRouter>
+      <Routes>
+        {/* The Layout wraps all routes inside it */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="shop" element={<Shop />} />
+          {/* Add more routes here as you build pages */}
 
-      <main>{/* Your content will go here */}</main>
-
-      <Footer />
-    </>
+          {/* 404 Route */}
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

@@ -241,9 +241,7 @@ input[type="submit"] {
   font-weight: var(--body-font-weight);
   line-height: var(--body-line-height);
 }
-input[type="number"] {
-  -moz-appearance: textfield;
-}
+
 img {
   max-width: 100%;
   height: auto;
@@ -589,7 +587,7 @@ hr {
 
 .gradient__text--color{
   background: linear-gradient(to right, #1066E7 0%, #C81CC5 100%);
-  -webkit-background-clip: text;
+  // -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

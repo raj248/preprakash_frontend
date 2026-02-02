@@ -638,7 +638,7 @@ const Header: React.FC = () => {
                 <li className="header__account--items header__minicart--items">
                   <a
                     className="header__account--btn minicart__open--btn"
-                    href="javascript:void(0)"
+                    // href="javascript:void(0)"
                     data-offcanvas=""
                   >
                     <span className="header__account--btn__icon">
@@ -884,7 +884,7 @@ const Header: React.FC = () => {
           <li className="offcanvas__sticky--toolbar__list">
             <a
               className="offcanvas__sticky--toolbar__btn minicart__open--btn"
-              href="javascript:void(0)"
+              // href="javascript:void(0)"
               data-offcanvas=""
             >
               <span className="offcanvas__sticky--toolbar__icon">
