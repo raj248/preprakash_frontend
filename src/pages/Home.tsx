@@ -7,6 +7,7 @@ import BannerSection from "@/components/home/BannerSection";
 import SmallProductSection from "@/components/home/SmallProductSection";
 import AdviceBanner from "@/components/home/AdviceBanner";
 import BlogSection from "@/components/home/BlogSection";
+import TestimonialSection from "@/components/home/TestimonialSection";
 
 const featuredData = [
   {
@@ -90,6 +91,65 @@ const blogData = [
   },
 ];
 
+const testimonials = [
+  {
+    id: 1,
+    name: "Michael Linda",
+    role: "Beautician",
+    image: "/assets/other/testimonial5.webp",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 3,
+  },
+  {
+    id: 2,
+    name: "Michael Linda",
+    role: "Beautician",
+    image: "/assets/other/testimonial5.webp",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Michael Linda",
+    role: "Beautician",
+    image: "/assets/other/testimonial5.webp",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 2,
+  },
+  {
+    id: 4,
+    name: "Michael Linda",
+    role: "Beautician",
+    image: "/assets/other/testimonial5.webp",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 4,
+  },
+  {
+    id: 5,
+    name: "Michael Linda",
+    role: "Beautician",
+    image: "/assets/other/testimonial5.webp",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: "Michael Linda",
+    role: "Beautician",
+    image: "/assets/other/testimonial5.webp",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    rating: 0,
+  },
+
+  // Add more here...
+];
+
 const Home: React.FC = () => {
   return (
     <>
@@ -116,6 +176,7 @@ const Home: React.FC = () => {
         link="/shop"
       />
       <BlogSection blogs={blogData} />
+      <TestimonialSection data={testimonials} />
       {/* Other sections like Featured Products, Instagram Feed, etc. */}
     </>
   );
