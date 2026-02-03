@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import TestimonialCarousel from "@/components/home/TestimonialCarousel";
+import TestimonialCarousel from "@/components/about/TestimonialCarousel";
 
 const AboutPage: React.FC = () => {
   const { ref, inView } = useInView({

@@ -73,21 +73,21 @@ const blogData = [
     author: "ROBERT SMITH",
     title: "Cumque nam tenetur error aliquam autem placeat ratione aut!",
     image: "/assets/blog/blog4.webp",
-    link: "/blog/1",
+    link: "/blog",
   },
   {
     id: 2,
     author: "ROBERT SMITH",
     title: "Ad esse soluta, is unde totam odio.",
     image: "/assets/blog/blog5.webp",
-    link: "/blog/2",
+    link: "/blog",
   },
   {
     id: 3,
     author: "ROBERT SMITH",
     title: "Hypoallergenic Wedding Bands",
     image: "/assets/blog/blog6.webp",
-    link: "/blog/3",
+    link: "/blog",
   },
 ];
 

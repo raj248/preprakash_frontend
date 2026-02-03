@@ -4,6 +4,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/AboutPage";
+import Blog from "./pages/Blog";
 
 // Placeholder components for pages (You will create these in src/pages/)
 const Shop = () => (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route index element={<Home />} />
           <Route path="shop" element={<Shop />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="blog" element={<Blog />} />
           {/* Add more routes here as you build pages */}
 
           {/* 404 Route */}
