@@ -4,6 +4,65 @@ import CategoryCollection from "@/components/home/CategoryCollection";
 import GridBanner from "@/components/home/GridBanner";
 import TrendingProducts from "@/components/home/TrendingProducts";
 import BannerSection from "@/components/home/BannerSection";
+import SmallProductSection from "@/components/home/SmallProductSection";
+
+const featuredData = [
+  {
+    id: 1,
+    title: "Z 7-8mm Freshwater Button",
+    price: "$220.52",
+    oldPrice: "$359.00",
+    rating: 4,
+    reviews: 126,
+    img: "/assets/product/small-product/product1.webp",
+  },
+  {
+    id: 2,
+    title: "Diamond Stud Earrings",
+    price: "$150.00",
+    rating: 5,
+    reviews: 88,
+    img: "/assets/product/small-product/product2.webp",
+  },
+  {
+    id: 3,
+    title: "Gold Eternity Ring",
+    price: "$180.52",
+    oldPrice: "$220.00",
+    rating: 3,
+    reviews: 45,
+    img: "/assets/product/small-product/product3.webp",
+  },
+];
+
+const onsaleData = [
+  {
+    id: 4,
+    title: "Gold Eternity Ring",
+    price: "$180.52",
+    oldPrice: "$220.00",
+    rating: 3,
+    reviews: 45,
+    img: "/assets/product/small-product/product4.webp",
+  },
+  {
+    id: 5,
+    title: "Diamond Stud Earrings",
+    price: "$150.00",
+    rating: 5,
+    reviews: 88,
+    img: "/assets/product/small-product/product5.webp",
+  },
+  {
+    id: 6,
+    title: "Z 7-8mm Freshwater Button",
+    price: "$220.52",
+    oldPrice: "$359.00",
+    rating: 4,
+    reviews: 126,
+    img: "/assets/product/small-product/product6.webp",
+  },
+];
 
 const Home: React.FC = () => {
   return (
@@ -21,6 +80,11 @@ const Home: React.FC = () => {
       />
       <TrendingProducts />
       <BannerSection />
+      <SmallProductSection
+        featuredProducts={featuredData}
+        onsaleProducts={onsaleData}
+        trendingProducts={featuredData} // You can reuse or make a third list
+      />
       {/* Other sections like Featured Products, Instagram Feed, etc. */}
     </>
   );
