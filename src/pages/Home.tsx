@@ -6,6 +6,7 @@ import TrendingProducts from "@/components/home/TrendingProducts";
 import BannerSection from "@/components/home/BannerSection";
 import SmallProductSection from "@/components/home/SmallProductSection";
 import AdviceBanner from "@/components/home/AdviceBanner";
+import BlogSection from "@/components/home/BlogSection";
 
 const featuredData = [
   {
@@ -65,14 +66,36 @@ const onsaleData = [
   },
 ];
 
+const blogData = [
+  {
+    id: 1,
+    author: "ROBERT SMITH",
+    title: "Cumque nam tenetur error aliquam autem placeat ratione aut!",
+    image: "/assets/blog/blog4.webp",
+    link: "/blog/1",
+  },
+  {
+    id: 2,
+    author: "ROBERT SMITH",
+    title: "Ad esse soluta, is unde totam odio.",
+    image: "/assets/blog/blog5.webp",
+    link: "/blog/2",
+  },
+  {
+    id: 3,
+    author: "ROBERT SMITH",
+    title: "Hypoallergenic Wedding Bands",
+    image: "/assets/blog/blog6.webp",
+    link: "/blog/3",
+  },
+];
+
 const Home: React.FC = () => {
   return (
     <>
       <HeroSlider />
       <CategoryCollection />
-
       <GridBanner />
-
       <GridBanner
         title="Soak Up The Savings"
         description="Brighten up your look with vibrant gemstone jewelry."
@@ -92,6 +115,7 @@ const Home: React.FC = () => {
         image="/assets/banner/banner-fullwidth5.webp"
         link="/shop"
       />
+      <BlogSection blogs={blogData} />
       {/* Other sections like Featured Products, Instagram Feed, etc. */}
     </>
   );
