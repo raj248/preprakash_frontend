@@ -5,6 +5,7 @@ import GridBanner from "@/components/home/GridBanner";
 import TrendingProducts from "@/components/home/TrendingProducts";
 import BannerSection from "@/components/home/BannerSection";
 import SmallProductSection from "@/components/home/SmallProductSection";
+import AdviceBanner from "@/components/home/AdviceBanner";
 
 const featuredData = [
   {
@@ -84,6 +85,12 @@ const Home: React.FC = () => {
         featuredProducts={featuredData}
         onsaleProducts={onsaleData}
         trendingProducts={featuredData} // You can reuse or make a third list
+      />
+      <AdviceBanner
+        title="Flat 50% Off On Fresh Jewelry"
+        description="50% OFF on the most popular jewelry brands. Order all classy products today!"
+        image="/assets/banner/banner-fullwidth5.webp"
+        link="/shop"
       />
       {/* Other sections like Featured Products, Instagram Feed, etc. */}
     </>
