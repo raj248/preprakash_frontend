@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlogSidebar from "./BlogSidebar";
-// import CommentSection from '../components/CommentSection';
-// import RelatedArticles from '../components/RelatedArticles';
+import CommentSection from "./CommentSection";
+import RelatedArticles from "./RelatedArticles";
 
 const BlogDetails: React.FC = () => {
   return (
@@ -81,8 +81,8 @@ const BlogDetails: React.FC = () => {
                 </div>
               </div>
 
-              {/* <RelatedArticles /> */}
-              {/* <CommentSection /> */}
+              <RelatedArticles />
+              <CommentSection />
             </div>
           </div>
 

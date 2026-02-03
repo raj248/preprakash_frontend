@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                   </h2>
                   <div className="footer__widget--inner">
                     <div className="footer__logo">
-                      <a className="footer__logo--link" href="index.html">
+                      <a className="footer__logo--link" href="/">
                         <img
                           className="footer__logo--img"
                           src="/assets/logo/nav-logo.jpg"

@@ -206,7 +206,7 @@ const Header: React.FC = () => {
             </div>
             <div className="main__logo">
               <h1 className="main__logo--title">
-                <a className="main__logo--link" href="index.html">
+                <a className="main__logo--link" href="/">
                   <img
                     className="main__logo--img"
                     src="/assets/logo/nav-logo.jpg"
@@ -219,12 +219,12 @@ const Header: React.FC = () => {
               <nav className="header__menu--navigation">
                 <ul className="header__menu--wrapper d-flex">
                   <li className="header__menu--items">
-                    <a className="header__menu--link active" href="index.html">
+                    <a className="header__menu--link active" href="/">
                       Home
                     </a>
                   </li>
                   <li className="header__menu--items">
-                    <a className="header__menu--link" href="about.html">
+                    <a className="header__menu--link" href="about">
                       About Us
                     </a>
                   </li>
@@ -671,7 +671,7 @@ const Header: React.FC = () => {
       <div className="offcanvas__header">
         <div className="offcanvas__inner">
           <div className="offcanvas__logo">
-            <a className="offcanvas__logo_link" href="index.html">
+            <a className="offcanvas__logo_link" href="/">
               <img
                 src="/assets/logo/nav-logo.jpg"
                 alt="Logo-img"
@@ -686,12 +686,12 @@ const Header: React.FC = () => {
           <nav className="offcanvas__menu">
             <ul className="offcanvas__menu_ul">
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="index.html">
+                <a className="offcanvas__menu_item" href="/">
                   Home
                 </a>
               </li>
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="about.html">
+                <a className="offcanvas__menu_item" href="about">
                   About
                 </a>
               </li>
@@ -733,7 +733,7 @@ const Header: React.FC = () => {
                           <li class="offcanvas__sub_menu_li">
                               <a href="#" class="offcanvas__sub_menu_item">Column Three</a>
                               <ul class="offcanvas__sub_menu">
-                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="about.html">About Us</a></li>
+                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="about">About Us</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="contact.html">Contact Us</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="portfolio.html">Portfolio</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="compare.html">Compare Pages</a></li>
@@ -811,7 +811,7 @@ const Header: React.FC = () => {
       <div className="offcanvas__sticky--toolbar">
         <ul className="d-flex justify-content-between">
           <li className="offcanvas__sticky--toolbar__list">
-            <a className="offcanvas__sticky--toolbar__btn" href="index.html">
+            <a className="offcanvas__sticky--toolbar__btn" href="/">
               <span className="offcanvas__sticky--toolbar__icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
