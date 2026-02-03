@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 
-// Import Swiper styles
-import "swiper/swiper.css";
-import "swiper/bundle";
-import "swiper";
-
 interface QuickviewProps {
   isOpen: boolean;
   onClose: () => void;
@@ -14,6 +9,7 @@ interface QuickviewProps {
 }
 
 const Quickview: React.FC<QuickviewProps> = ({ isOpen, onClose, product }) => {
+  product;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const [quantity, setQuantity] = useState(1);
 
