@@ -3,6 +3,7 @@ import HeroSlider from "../components/home/HeroSlider";
 import CategoryCollection from "@/components/home/CategoryCollection";
 import GridBanner from "@/components/home/GridBanner";
 import TrendingProducts from "@/components/home/TrendingProducts";
+import BannerSection from "@/components/home/BannerSection";
 
 const Home: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
         reverse={true}
       />
       <TrendingProducts />
+      <BannerSection />
       {/* Other sections like Featured Products, Instagram Feed, etc. */}
     </>
   );
