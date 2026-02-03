@@ -284,10 +284,7 @@ const Footer: React.FC = () => {
                   </h2>
                   <ul className="footer__widget--menu footer__widget--inner">
                     <li className="footer__widget--menu__list">
-                      <a
-                        className="footer__widget--menu__text"
-                        href="about.html"
-                      >
+                      <a className="footer__widget--menu__text" href="about">
                         About Us
                       </a>
                     </li>
