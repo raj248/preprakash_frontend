@@ -780,7 +780,7 @@ const Header: React.FC = () => {
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="my-account.html">My Account</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="my-account-2.html">My Account 2</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="404.html">404 Page</a></li>
-                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="login.html">Login Page</a></li>
+                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="login">Login Page</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="faq.html">Faq Page</a></li>
                               </ul>
                           </li>
@@ -825,7 +825,7 @@ const Header: React.FC = () => {
             <div className="offcanvas__account--items">
               <a
                 className="offcanvas__account--items__btn d-flex align-items-center"
-                href="login.html"
+                href="login"
               >
                 <span className="offcanvas__account--items__icon">
                   <svg

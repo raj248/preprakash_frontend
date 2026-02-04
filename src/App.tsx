@@ -11,6 +11,7 @@ import ContactPage from "./components/home/ContactUs";
 import CheckoutPage from "./pages/CheckoutPage";
 import WishlistPage from "./pages/Wishlist";
 import ProductDetails from "./pages/ProductDetails";
+import LoginPage from "./pages/Login";
 
 const App: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const App: React.FC = () => {
           {/* <Route path="product/:id" element={<ProductDetails />} /> */}
           <Route path="product-details" element={<ProductDetails />} />
 
+          <Route path="login" element={<LoginPage />} />
           {/* Add more routes here as you build pages */}
 
           {/* 404 Route */}
