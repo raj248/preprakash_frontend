@@ -10,6 +10,7 @@ import CartPage from "./pages/Cart";
 import ContactPage from "./components/home/ContactUs";
 import CheckoutPage from "./pages/CheckoutPage";
 import WishlistPage from "./pages/Wishlist";
+import ProductDetails from "./pages/ProductDetails";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,8 @@ const App: React.FC = () => {
           <Route path="contact" element={<ContactPage />} />
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path="wishlist" element={<WishlistPage />} />
+          {/* <Route path="product/:id" element={<ProductDetails />} /> */}
+          <Route path="product-details" element={<ProductDetails />} />
 
           {/* Add more routes here as you build pages */}
 
