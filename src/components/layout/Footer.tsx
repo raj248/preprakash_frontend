@@ -160,10 +160,7 @@ const Footer: React.FC = () => {
                       </a>
                     </li>
                     <li className="footer__widget--menu__list">
-                      <a
-                        className="footer__widget--menu__text"
-                        href="cart.html"
-                      >
+                      <a className="footer__widget--menu__text" href="cart">
                         Fashion Accessories
                       </a>
                     </li>

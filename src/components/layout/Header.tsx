@@ -1152,7 +1152,7 @@ const Header: React.FC = () => {
           </label>
         </div>
         <div className="minicart__button d-flex justify-content-center">
-          <a className="primary__btn minicart__button--link" href="cart.html">
+          <a className="primary__btn minicart__button--link" href="cart">
             View cart
           </a>
           <a
