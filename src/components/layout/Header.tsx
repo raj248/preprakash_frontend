@@ -277,7 +277,7 @@ const Header: React.FC = () => {
                     </a>
                   </li>
                   <li className="header__menu--items mega__menu--items">
-                    <a className="header__menu--link" href="shop-grid.html">
+                    <a className="header__menu--link" href="shop-grid">
                       Shop
                       <svg
                         className="menu__arrowdown--icon"
@@ -301,7 +301,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Neck Jewellery
                               </a>
@@ -317,7 +317,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Hand Jewellery
                               </a>
@@ -341,7 +341,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Head Jewellery
                               </a>
@@ -349,7 +349,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Special Jewellery
                               </a>
@@ -369,7 +369,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Hair Clips &amp; Pins
                               </a>
@@ -377,7 +377,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Hair Styling Tools
                               </a>
@@ -385,7 +385,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Hair Bands
                               </a>
@@ -393,7 +393,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Hair Decoration
                               </a>
@@ -401,7 +401,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Wearables
                               </a>
@@ -409,7 +409,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Eye Accessories
                               </a>
@@ -417,7 +417,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Clothing Accessories
                               </a>
@@ -425,7 +425,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Beauty &amp; Fragrance
                               </a>
@@ -437,7 +437,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Seasonal Items
                               </a>
@@ -445,7 +445,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Saree Essentials
                               </a>
@@ -453,7 +453,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Dress Add-ons
                               </a>
@@ -461,7 +461,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Women's Bags
                               </a>
@@ -469,7 +469,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Clutches &amp; Pouches
                               </a>
@@ -477,7 +477,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Kids Bags
                               </a>
@@ -485,7 +485,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Jewellery Storage
                               </a>
@@ -493,7 +493,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Watch Storage
                               </a>
@@ -505,7 +505,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Jewellery
                               </a>
@@ -513,7 +513,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Hair Accessories
                               </a>
@@ -521,7 +521,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Fashion Accessories
                               </a>
@@ -529,7 +529,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Saree &amp; Ethnic Accessories
                               </a>
@@ -537,7 +537,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Bags &amp; Purses
                               </a>
@@ -545,7 +545,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Storage &amp; Utility
                               </a>
@@ -553,7 +553,7 @@ const Header: React.FC = () => {
                             <li className="header__mega--sub__menu_li">
                               <a
                                 className="header__mega--sub__menu--title"
-                                href="shop-grid.html"
+                                href="shop-grid"
                               >
                                 Kids Accessories
                               </a>
@@ -562,7 +562,7 @@ const Header: React.FC = () => {
                         </li>
                         <li className="header__mega--menu__li banner__child">
                           <div className="header__mega--menu__banner">
-                            <a href="shop-grid.html">
+                            <a href="shop-grid">
                               <img
                                 className="header__mega--menu__banner--img"
                                 src="/assets/banner/banner-menu.webp"
@@ -575,22 +575,22 @@ const Header: React.FC = () => {
                     </div>
                   </li>
                   <li className="header__menu--items">
-                    <a className="header__menu--link" href="shop-grid.html">
+                    <a className="header__menu--link" href="shop-grid">
                       Jewellery
                     </a>
                   </li>
                   <li className="header__menu--items">
-                    <a className="header__menu--link" href="shop-grid.html">
+                    <a className="header__menu--link" href="shop-grid">
                       Accesories
                     </a>
                   </li>
                   <li className="header__menu--items">
-                    <a className="header__menu--link" href="shop-grid.html">
+                    <a className="header__menu--link" href="shop-grid">
                       New Arrivals
                     </a>
                   </li>
                   <li className="header__menu--items">
-                    <a className="header__menu--link" href="shop-grid.html">
+                    <a className="header__menu--link" href="shop-grid">
                       Offers
                     </a>
                   </li>
@@ -750,16 +750,16 @@ const Header: React.FC = () => {
                 </a>
               </li>
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="shop-grid.html">
+                <a className="offcanvas__menu_item" href="shop-grid">
                   Shop
                 </a>
                 {/* <ul class="offcanvas__sub_menu">
                           <li class="offcanvas__sub_menu_li">
                               <a href="#" class="offcanvas__sub_menu_item">Column One</a>
                               <ul class="offcanvas__sub_menu">
-                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="shop-grid.html">Shop Left Sidebar</a></li>
+                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="shop-grid">Shop Left Sidebar</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="shop-grid.html">Shop Grid</a></li>
+                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="shop-grid">Shop Grid</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="shop-grid-list.html">Shop Grid List</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="shop-list.html">Shop List</a></li>
                               </ul>
@@ -797,22 +797,22 @@ const Header: React.FC = () => {
                       </ul> */}
               </li>
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="shop-grid.html">
+                <a className="offcanvas__menu_item" href="shop-grid">
                   Jewellery
                 </a>
               </li>
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="shop-grid.html">
+                <a className="offcanvas__menu_item" href="shop-grid">
                   Accesories
                 </a>
               </li>
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="shop-grid.html">
+                <a className="offcanvas__menu_item" href="shop-grid">
                   New Arrivals
                 </a>
               </li>
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="shop-grid.html">
+                <a className="offcanvas__menu_item" href="shop-grid">
                   Offers
                 </a>
               </li>
@@ -884,10 +884,7 @@ const Header: React.FC = () => {
             </a>
           </li>
           <li className="offcanvas__sticky--toolbar__list">
-            <a
-              className="offcanvas__sticky--toolbar__btn"
-              href="shop-grid.html"
-            >
+            <a className="offcanvas__sticky--toolbar__btn" href="shop-grid">
               <span className="offcanvas__sticky--toolbar__icon">
                 <svg
                   fill="currentColor"

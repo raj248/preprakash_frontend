@@ -5,13 +5,8 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/AboutPage";
 import Blog from "./pages/Blog";
+import Shop from "./pages/Shop";
 
-// Placeholder components for pages (You will create these in src/pages/)
-const Shop = () => (
-  <div className="container py-5">
-    <h1>Shop Page Content</h1>
-  </div>
-);
 const App: React.FC = () => {
   return (
     <BrowserRouter>
@@ -19,7 +14,7 @@ const App: React.FC = () => {
         {/* The Layout wraps all routes inside it */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="shop" element={<Shop />} />
+          <Route path="shop-grid" element={<Shop />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="blog" element={<Blog />} />
           {/* Add more routes here as you build pages */}
