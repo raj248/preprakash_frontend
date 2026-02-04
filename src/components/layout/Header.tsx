@@ -1,6 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Header: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  // Close everything helper
+  const closeAll = () => {
+    setMenuOpen(false);
+    setCartOpen(false);
+    setSearchOpen(false);
+  };
+
+  useEffect(() => {
+    const body = document.body;
+
+    // Toggle Classes based on state
+    if (menuOpen) body.classList.add("mobile_menu_open");
+    else body.classList.remove("mobile_menu_open");
+
+    if (cartOpen) body.classList.add("offCanvas__minicart_active");
+    else body.classList.remove("offCanvas__minicart_active");
+
+    if (searchOpen) body.classList.add("predictive__search--box_active");
+    else body.classList.remove("predictive__search--box_active");
+
+    // Handle clicking the overlay (the ::before area)
+    const handleOverlayClick = (e: MouseEvent) => {
+      // If the user clicks exactly on the body (which is the overlay area)
+      // and not inside the actual menu/cart container
+      if (e.target === body) {
+        closeAll();
+      }
+    };
+
+    if (menuOpen || cartOpen || searchOpen) {
+      window.addEventListener("click", handleOverlayClick);
+    }
+
+    return () => {
+      window.removeEventListener("click", handleOverlayClick);
+      body.classList.remove(
+        "mobile_menu_open",
+        "offCanvas__minicart_active",
+        "predictive__search--box_active",
+      );
+    };
+  }, [menuOpen, cartOpen, searchOpen]);
+
   return (
     <header className="header__section">
       {/* Top Header */}
@@ -184,7 +231,8 @@ const Header: React.FC = () => {
             <div className="offcanvas__header--menu__open">
               <a
                 className="offcanvas__header--menu__open--btn"
-                href="javascript:void(0)"
+                // href="javascript:void(0)"
+                onClick={() => setMenuOpen(!menuOpen)}
                 data-offcanvas=""
               >
                 <svg
@@ -559,7 +607,8 @@ const Header: React.FC = () => {
                 <li className="header__account--items header__account--search__items d-none d-lg-block">
                   <a
                     className="header__account--btn search__open--btn"
-                    href="javascript:void(0)"
+                    // href="javascript:void(0)"
+                    onClick={() => setSearchOpen(true)}
                     data-offcanvas=""
                   >
                     <span className="header__account--btn__icon">
@@ -639,6 +688,7 @@ const Header: React.FC = () => {
                   <a
                     className="header__account--btn minicart__open--btn"
                     // href="javascript:void(0)"
+                    onClick={() => setCartOpen(!cartOpen)}
                     data-offcanvas=""
                   >
                     <span className="header__account--btn__icon">
@@ -668,7 +718,7 @@ const Header: React.FC = () => {
       {/* End Bottom Header */}
 
       {/* Start Offcanvas header menu */}
-      <div className="offcanvas__header">
+      <div className={`offcanvas__header ${menuOpen ? "open" : ""}`}>
         <div className="offcanvas__inner">
           <div className="offcanvas__logo">
             <a className="offcanvas__logo_link" href="/">
@@ -679,7 +729,11 @@ const Header: React.FC = () => {
                 height={36}
               />
             </a>
-            <button className="offcanvas__close--btn" data-offcanvas="">
+            <button
+              className="offcanvas__close--btn"
+              onClick={() => setMenuOpen(false)}
+              data-offcanvas=""
+            >
               close
             </button>
           </div>
@@ -932,7 +986,7 @@ const Header: React.FC = () => {
       {/* End Offcanvas sticky toolbar */}
 
       {/* Start offCanvas minicart */}
-      <div className="offCanvas__minicart">
+      <div className={`offCanvas__minicart ${cartOpen ? "active" : ""}`}>
         <div className="minicart__header">
           <div className="minicart__header--top d-flex justify-content-between align-items-center">
             <h3 className="minicart__title">Shopping Cart</h3>
@@ -940,6 +994,7 @@ const Header: React.FC = () => {
               className="minicart__close--btn"
               aria-label="minicart close btn"
               data-offcanvas=""
+              onClick={() => setCartOpen(false)}
             >
               <svg
                 className="minicart__close--icon"
@@ -1114,7 +1169,7 @@ const Header: React.FC = () => {
       {/* End offCanvas minicart */}
 
       {/* Start search box area */}
-      <div className="predictive__search--box">
+      <div className={`predictive__search--box ${searchOpen ? "active" : ""}`}>
         <div className="predictive__search--box__inner">
           <h2 className="predictive__search--title">Search Products</h2>
           <form className="predictive__search--form" action="#">
@@ -1159,6 +1214,7 @@ const Header: React.FC = () => {
           className="predictive__search--close__btn"
           aria-label="search close"
           data-offcanvas=""
+          onClick={() => setSearchOpen(false)}
         >
           <svg
             className="predictive__search--close__icon"
