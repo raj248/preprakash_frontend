@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/AboutPage";
 import Blog from "./pages/Blog";
 import Shop from "./pages/Shop";
+import CartPage from "./pages/Cart";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,8 @@ const App: React.FC = () => {
           <Route path="shop-grid" element={<Shop />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="cart" element={<CartPage />} />
+
           {/* Add more routes here as you build pages */}
 
           {/* 404 Route */}
