@@ -595,7 +595,7 @@ const Header: React.FC = () => {
                     </a>
                   </li>
                   <li className="header__menu--items">
-                    <a className="header__menu--link" href="contact.html">
+                    <a className="header__menu--link" href="contact">
                       Contact
                     </a>
                   </li>
@@ -788,7 +788,7 @@ const Header: React.FC = () => {
                               <a href="#" class="offcanvas__sub_menu_item">Column Three</a>
                               <ul class="offcanvas__sub_menu">
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="about">About Us</a></li>
-                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="contact.html">Contact Us</a></li>
+                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="contact">Contact Us</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="portfolio.html">Portfolio</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="compare.html">Compare Pages</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="checkout">Checkout page</a></li>
@@ -817,7 +817,7 @@ const Header: React.FC = () => {
                 </a>
               </li>
               <li className="offcanvas__menu_li">
-                <a className="offcanvas__menu_item" href="contact.html">
+                <a className="offcanvas__menu_item" href="contact">
                   Contact
                 </a>
               </li>

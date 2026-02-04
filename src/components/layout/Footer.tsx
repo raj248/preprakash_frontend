@@ -285,10 +285,7 @@ const Footer: React.FC = () => {
                       </a>
                     </li>
                     <li className="footer__widget--menu__list">
-                      <a
-                        className="footer__widget--menu__text"
-                        href="contact.html"
-                      >
+                      <a className="footer__widget--menu__text" href="contact">
                         Contact Us
                       </a>
                     </li>
