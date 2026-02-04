@@ -181,10 +181,7 @@ const Footer: React.FC = () => {
                       </a>
                     </li>
                     <li className="footer__widget--menu__list">
-                      <a
-                        className="footer__widget--menu__text"
-                        href="checkout.html"
-                      >
+                      <a className="footer__widget--menu__text" href="checkout">
                         Storage &amp; Boxes
                       </a>
                     </li>

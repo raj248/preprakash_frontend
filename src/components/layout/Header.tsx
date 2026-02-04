@@ -791,7 +791,7 @@ const Header: React.FC = () => {
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="contact.html">Contact Us</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="portfolio.html">Portfolio</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="compare.html">Compare Pages</a></li>
-                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="checkout.html">Checkout page</a></li>
+                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="checkout">Checkout page</a></li>
                               </ul>
                           </li>
                       </ul> */}
@@ -1155,10 +1155,7 @@ const Header: React.FC = () => {
           <a className="primary__btn minicart__button--link" href="cart">
             View cart
           </a>
-          <a
-            className="primary__btn minicart__button--link"
-            href="checkout.html"
-          >
+          <a className="primary__btn minicart__button--link" href="checkout">
             Checkout
           </a>
         </div>

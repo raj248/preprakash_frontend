@@ -10,7 +10,7 @@ const Layout: React.FC = () => {
     <>
       <Preloader />
       <Header />
-      <main>
+      <main className="main__content_wrapper">
         {/* Everything inside the Routes in App.tsx will appear here */}
         <Outlet />
       </main>
