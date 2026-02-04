@@ -171,7 +171,7 @@ const Header: React.FC = () => {
               </ul>
               <ul className="header__top--link d-flex align-items-center">
                 <li className="header__link--menu">
-                  <a className="header__link--menu__text" href="wishlist.html">
+                  <a className="header__link--menu__text" href="wishlist">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={18}
@@ -633,7 +633,7 @@ const Header: React.FC = () => {
                 <li className="header__account--items">
                   <a
                     className="header__account--btn d-sm-2-none"
-                    href="wishlist.html"
+                    href="wishlist"
                   >
                     <span className="header__account--btn__icon">
                       <svg
@@ -957,7 +957,7 @@ const Header: React.FC = () => {
             </a>
           </li>
           <li className="offcanvas__sticky--toolbar__list">
-            <a className="offcanvas__sticky--toolbar__btn" href="wishlist.html">
+            <a className="offcanvas__sticky--toolbar__btn" href="wishlist">
               <span className="offcanvas__sticky--toolbar__icon">
                 <svg
                   width={18}

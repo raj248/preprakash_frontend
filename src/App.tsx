@@ -9,6 +9,7 @@ import Shop from "./pages/Shop";
 import CartPage from "./pages/Cart";
 import ContactPage from "./components/home/ContactUs";
 import CheckoutPage from "./pages/CheckoutPage";
+import WishlistPage from "./pages/Wishlist";
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="cart" element={<CartPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="checkout" element={<CheckoutPage />} />
+          <Route path="wishlist" element={<WishlistPage />} />
 
           {/* Add more routes here as you build pages */}
 
