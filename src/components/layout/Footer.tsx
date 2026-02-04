@@ -154,7 +154,7 @@ const Footer: React.FC = () => {
                     <li className="footer__widget--menu__list">
                       <a
                         className="footer__widget--menu__text"
-                        href="my-account.html"
+                        href="my-account"
                       >
                         Jewellery
                       </a>
@@ -297,7 +297,7 @@ const Footer: React.FC = () => {
                     <li className="footer__widget--menu__list">
                       <a
                         className="footer__widget--menu__text"
-                        href="my-account.html"
+                        href="my-account"
                       >
                         My Account
                       </a>

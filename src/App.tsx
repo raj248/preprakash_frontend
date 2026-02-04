@@ -13,6 +13,7 @@ import WishlistPage from "./pages/Wishlist";
 import ProductDetails from "./pages/ProductDetails";
 import LoginPage from "./pages/Login";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Dashboard from "./pages/Dashboard";
 
 const App: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const App: React.FC = () => {
 
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="my-account" element={<Dashboard />} />
           <Route path="login" element={<LoginPage />} />
           {/* Add more routes here as you build pages */}
 

@@ -657,7 +657,7 @@ const Header: React.FC = () => {
                 <li className="header__account--items">
                   <a
                     className="header__account--btn d-sm-2-none"
-                    href="my-account.html"
+                    href="my-account"
                   >
                     <span className="header__account--btn__icon">
                       <svg
@@ -777,7 +777,7 @@ const Header: React.FC = () => {
                           <li class="offcanvas__sub_menu_li">
                               <a href="#" class="offcanvas__sub_menu_item">Column Three</a>
                               <ul class="offcanvas__sub_menu">
-                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="my-account.html">My Account</a></li>
+                                  <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="my-account">My Account</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="my-account-2.html">My Account 2</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="404.html">404 Page</a></li>
                                   <li class="offcanvas__sub_menu_li"><a class="offcanvas__sub_menu_item" href="login">Login Page</a></li>
