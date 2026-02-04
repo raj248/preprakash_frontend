@@ -208,7 +208,7 @@ const Footer: React.FC = () => {
                     <li className="footer__widget--menu__list">
                       <a
                         className="footer__widget--menu__text"
-                        href="privacy-policy.html"
+                        href="privacy-policy"
                       >
                         Privacy Policy
                       </a>
@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
                     <li className="footer__widget--menu__list">
                       <a
                         className="footer__widget--menu__text"
-                        href="privacy-policy.html"
+                        href="privacy-policy"
                       >
                         Terms &amp; Conditions
                       </a>
@@ -224,7 +224,7 @@ const Footer: React.FC = () => {
                     <li className="footer__widget--menu__list">
                       <a
                         className="footer__widget--menu__text"
-                        href="privacy-policy.html"
+                        href="privacy-policy"
                       >
                         Return &amp; Refund Policy
                       </a>
@@ -232,7 +232,7 @@ const Footer: React.FC = () => {
                     <li className="footer__widget--menu__list">
                       <a
                         className="footer__widget--menu__text"
-                        href="privacy-policy.html"
+                        href="privacy-policy"
                       >
                         Shipping Policy
                       </a>
@@ -240,7 +240,7 @@ const Footer: React.FC = () => {
                     <li className="footer__widget--menu__list">
                       <a
                         className="footer__widget--menu__text"
-                        href="privacy-policy.html"
+                        href="privacy-policy"
                       >
                         Cancellation Policy
                       </a>

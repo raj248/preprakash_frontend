@@ -1143,10 +1143,7 @@ const Header: React.FC = () => {
           />
           <label className="minicart__conditions--label" htmlFor="accept">
             I agree with the
-            <a
-              className="minicart__conditions--link"
-              href="privacy-policy.html"
-            >
+            <a className="minicart__conditions--link" href="privacy-policy">
               Privacy Policy
             </a>
           </label>
