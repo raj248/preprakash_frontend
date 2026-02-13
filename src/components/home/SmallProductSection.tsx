@@ -1,3 +1,4 @@
+import { useSettings } from "@/context/SettingContext";
 import { Link } from "react-router-dom";
 
 // Reuse the Star logic for consistency
@@ -31,38 +32,53 @@ const RenderStars = ({ rating }: { rating: number }) => {
   return <>{stars}</>;
 };
 
-const SmallProductCard = ({ product }: any) => (
-  <article className="small__product--card d-flex align-items-center mb-20">
-    <div className="small__product--thumbnail">
-      <Link className="display-block" to={`/product/${product.id}`}>
-        <img
-          className="small__product--thumbnail__img"
-          src={product.img}
-          alt={product.title}
-        />
-      </Link>
-    </div>
-    <div className="small__product--content">
-      <h3 className="product__card--title">
-        <Link to={`/product/${product.id}`}>{product.title}</Link>
-      </h3>
-      <ul className="rating product__card--rating d-flex">
-        <RenderStars rating={product.rating} />
-        <li>
-          <span className="rating__review--text">
-            ({product.reviews}) Review
-          </span>
-        </li>
-      </ul>
-      <div className="product__card--price">
-        <span className="current__price">{product.price}</span>
-        {product.oldPrice && (
-          <span className="old__price"> {product.oldPrice}</span>
-        )}
+const SmallProductCard = ({ product }: any) => {
+  const { globalSettings } = useSettings();
+  return (
+    <article className="small__product--card d-flex align-items-center mb-20">
+      <div className="small__product--thumbnail">
+        <Link className="display-block" to={`/product/${product.slug}`}>
+          {/* A LIST OF IMAGES OR A SINGLE IMAGE */}
+          {Array.isArray(product.image) && product.image.length > 0 ? (
+            <img
+              className="small__product--thumbnail__img"
+              src={product.image[0]}
+              alt={product.title}
+            />
+          ) : (
+            <img
+              className="small__product--thumbnail__img"
+              src={product.image}
+              alt={product.title}
+            />
+          )}
+        </Link>
       </div>
-    </div>
-  </article>
-);
+      <div className="small__product--content">
+        <h3 className="product__card--title">
+          <Link to={`/product/${product.slug}`}>{product.title}</Link>
+        </h3>
+        <ul className="rating product__card--rating d-flex">
+          <RenderStars rating={product.rating || 0} />
+          <li>
+            <span className="rating__review--text">
+              ({product.reviews}) Review
+            </span>
+          </li>
+        </ul>
+        <div className="product__card--price">
+          <span className="current__price">
+            {globalSettings?.default_currency}
+            {product.prices.price}
+          </span>
+          {product.prices.discount && (
+            <span className="old__price"> {product.prices.originalPrice}</span>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+};
 
 const SmallProductSection = ({
   featuredProducts,
@@ -82,8 +98,8 @@ const SmallProductSection = ({
                 </h2>
               </div>
               <div className="small__product--step__inner">
-                {featuredProducts.map((p: any) => (
-                  <SmallProductCard key={p.id} product={p} />
+                {featuredProducts.slice(0, 4).map((p: any) => (
+                  <SmallProductCard key={p._id} product={p} />
                 ))}
               </div>
             </div>
@@ -96,8 +112,8 @@ const SmallProductSection = ({
                 <h2 className="section__heading--maintitle">Onsale Products</h2>
               </div>
               <div className="small__product--step__inner">
-                {onsaleProducts.map((p: any) => (
-                  <SmallProductCard key={p.id} product={p} />
+                {onsaleProducts.slice(0, 4).map((p: any) => (
+                  <SmallProductCard key={p._id} product={p} />
                 ))}
               </div>
             </div>
@@ -112,8 +128,8 @@ const SmallProductSection = ({
                 </h2>
               </div>
               <div className="small__product--step__inner">
-                {trendingProducts.map((p: any) => (
-                  <SmallProductCard key={p.id} product={p} />
+                {trendingProducts.slice(0, 4).map((p: any) => (
+                  <SmallProductCard key={p._id} product={p} />
                 ))}
               </div>
             </div>

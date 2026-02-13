@@ -14,34 +14,37 @@ import ProductDetails from "./pages/ProductDetails";
 import LoginPage from "./pages/Login";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Dashboard from "./pages/Dashboard";
+import { SettingProvider } from "./context/SettingContext";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* The Layout wraps all routes inside it */}
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="shop-grid" element={<Shop />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="cart" element={<CartPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="checkout" element={<CheckoutPage />} />
-          <Route path="wishlist" element={<WishlistPage />} />
-          {/* <Route path="product/:id" element={<ProductDetails />} /> */}
-          <Route path="product-details" element={<ProductDetails />} />
+      <SettingProvider>
+        <Routes>
+          {/* The Layout wraps all routes inside it */}
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="shop-grid" element={<Shop />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="checkout" element={<CheckoutPage />} />
+            <Route path="wishlist" element={<WishlistPage />} />
+            {/* <Route path="product/:id" element={<ProductDetails />} /> */}
+            <Route path="product-details" element={<ProductDetails />} />
 
-          <Route path="privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="my-account" element={<Dashboard />} />
-          <Route path="login" element={<LoginPage />} />
-          {/* Add more routes here as you build pages */}
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="my-account" element={<Dashboard />} />
+            <Route path="login" element={<LoginPage />} />
+            {/* Add more routes here as you build pages */}
 
-          {/* 404 Route */}
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+            {/* 404 Route */}
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </SettingProvider>
     </BrowserRouter>
   );
 };

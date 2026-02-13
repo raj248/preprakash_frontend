@@ -1,0 +1,37 @@
+// productService.ts
+import requests from "./httpServices";
+import {
+  type GetShowingStoreProductsResponse,
+  type Product,
+} from "../types/product";
+
+const ProductServices = {
+  getShowingProducts: async (): Promise<Product[]> => {
+    console.log("showing products");
+    return requests.get<Product[]>("/products/show");
+  },
+
+  getShowingStoreProducts: async (params: {
+    category?: string;
+    title?: string;
+    slug?: string;
+  }): Promise<GetShowingStoreProductsResponse> => {
+    const { category = "", title = "", slug = "" } = params;
+    return requests.get<GetShowingStoreProductsResponse>(
+      `/products/store?category=${category}&title=${title}&slug=${slug}`,
+    );
+  },
+
+  getDiscountedProducts: async (): Promise<Product[]> => {
+    return requests.get<Product[]>("/products/discount");
+  },
+
+  getProductBySlug: async (slug: string): Promise<Product> => {
+    return requests.get<Product>(`/products/product/${slug}`);
+  },
+  getProductById: async (id: string): Promise<Product> => {
+    return requests.post<Product>(`/products/${id}`);
+  },
+};
+
+export default ProductServices;
