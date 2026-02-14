@@ -1,3 +1,4 @@
+import { useSettings } from "@/context/SettingContext";
 import React, { useState } from "react";
 
 const ContactSection = () => {
@@ -22,6 +23,7 @@ const ContactSection = () => {
     alert("Thank you! Your message has been sent.");
   };
 
+  const { customization } = useSettings();
   return (
     <section className="contact__section section--padding">
       <div className="container">
@@ -97,24 +99,27 @@ const ContactSection = () => {
             <InfoItem title="Contact Us" icon={<PhoneIcon />}>
               <p className="contact__info--content__desc text-white">
                 Change the design through a range <br />
-                <a href="tel:+01234-567890">+01234-567890</a> <br />
-                <a href="tel:++01234-5688765">+01234-5688765</a>
+                {/* <a href="tel:+01234-567890">+01234-567890</a> <br /> */}
+                <a href={"tel:" + customization?.footer.block4_phone}>
+                  {customization?.footer.block4_phone}
+                </a>
               </p>
             </InfoItem>
 
             {/* Email Info */}
             <InfoItem title="Email Address" icon={<EmailIcon />}>
               <p className="contact__info--content__desc text-white">
-                <a href="mailto:info@example.com">info@example.com</a> <br />
-                <a href="mailto:support@example.com">support@example.com</a>
+                {/* <a href="mailto:info@example.com">info@example.com</a> <br /> */}
+                <a href={"mailto:" + customization?.footer.block4_email}>
+                  {customization?.footer.block4_email}
+                </a>
               </p>
             </InfoItem>
 
             {/* Location Info */}
             <InfoItem title="Office Location" icon={<LocationIcon />}>
               <p className="contact__info--content__desc text-white">
-                Shop no.06, Gaylord chowk, Jawaharlal Nehru Rd, Shastri Nagar,
-                Pimpri-Chinchwad, Maharashtra 411017
+                {customization?.footer.block4_address.en}
               </p>
             </InfoItem>
 
@@ -130,7 +135,6 @@ const ContactSection = () => {
                   path="M967.495,353.678h-2.3v8.253h-3.437v-8.253H960.13V350.77h1.624v-1.888a4.087,4.087,0,0,1,.264-1.492,2.9,2.9,0,0,1,1.039-1.379,3.626,3.626,0,0,1,2.153-.6l2.549.019v2.833h-1.851a.732.732,0,0,0-.472.151.8.8,0,0,0-.246.642v1.719H967.8Z"
                   viewBox="0 0 7.667 16.524"
                 />
-                {/* Add more SocialIcon components here */}
               </ul>
             </div>
           </div>

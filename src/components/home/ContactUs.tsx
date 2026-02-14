@@ -1,5 +1,6 @@
 import React, { useState, type JSX } from "react";
 import FeatureSection from "../shop/FeatureSection";
+import { useSettings } from "@/context/SettingContext";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,8 @@ const ContactPage = () => {
     // Add your API call or EmailJS logic here
     alert("Thank you! Your message has been sent.");
   };
+
+  const { customization } = useSettings();
 
   return (
     <>
@@ -147,23 +150,26 @@ const ContactPage = () => {
               <ContactInfoBlock title="Contact Us" icon={<PhoneIcon />}>
                 <p className="contact__info--content__desc text-white">
                   Change the design through a range <br />
-                  <a href="tel:+01234-567890">+01234-567890</a>
-                  <a href="tel:+01234-5688765">+01234-5688765</a>
+                  {/* <a href="tel:+01234-567890">+01234-567890</a> */}
+                  <a href={"tel:" + customization?.footer.block4_phone}>
+                    {customization?.footer.block4_phone}
+                  </a>
                 </p>
               </ContactInfoBlock>
 
               <ContactInfoBlock title="Email Address" icon={<EmailIcon />}>
                 <p className="contact__info--content__desc text-white">
-                  <a href="mailto:info@example.com">info@example.com</a>
+                  {/* <a href="mailto:info@example.com">info@example.com</a> */}
                   <br />
-                  <a href="mailto:support@example.com">support@example.com</a>
+                  <a href={"mailto:" + customization?.footer.block4_email}>
+                    {customization?.footer.block4_email}
+                  </a>
                 </p>
               </ContactInfoBlock>
 
               <ContactInfoBlock title="Office Location" icon={<LocationIcon />}>
                 <p className="contact__info--content__desc text-white">
-                  Shop no.06, Gaylord chowk, Shastri Nagar, Pimpri Colony,
-                  Maharashtra 411017
+                  {customization?.footer.block4_address.en}
                 </p>
               </ContactInfoBlock>
 
@@ -174,22 +180,22 @@ const ContactPage = () => {
                 <ul className="contact__info--social d-flex">
                   {/* Simplified social links for brevity - keep your SVG paths here */}
                   <SocialLink
-                    href="https://facebook.com"
+                    href={customization?.footer.social_facebook}
                     svg={Facebook}
                     label="Facebook"
                   />
                   <SocialLink
-                    href="https://twitter.com"
+                    href={customization?.footer.social_twitter}
                     svg={Twitter}
                     label="Twitter"
                   />
                   <SocialLink
-                    href="https://instagram.com"
+                    href={customization?.footer.social_pinterest}
                     svg={Instagram}
                     label="Instagram"
                   />
                   <SocialLink
-                    href="https://instagram.com"
+                    href={customization?.footer.social_linkedin}
                     svg={Youtube}
                     label="Youtube"
                   />

@@ -2,25 +2,31 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
-
-const categories = [
-  { id: 1, title: "Necklaces", img: "/assets/collection/collection7.webp" },
-  { id: 2, title: "Bracelets", img: "/assets/collection/collection8.webp" },
-  { id: 3, title: "Earrings", img: "/assets/collection/collection9.webp" },
-  {
-    id: 4,
-    title: "Wedding-bridal",
-    img: "/assets/collection/collection10.webp",
-  },
-  {
-    id: 5,
-    title: "Shop Earrings",
-    img: "/assets/collection/collection11.webp",
-  },
-  { id: 6, title: "Pendants", img: "/assets/collection/collection7.webp" },
-];
+import { useCategory } from "@/hooks/useCategory";
 
 const CategoryCollection: React.FC = () => {
+  const { categories } = useCategory();
+
+  const flattenCategories = (nodeList: Category[]): Category[] => {
+    let flat: Category[] = [];
+
+    nodeList.forEach((node) => {
+      if (node.parentId) {
+        flat.push(node); // Add current category
+      }
+      if (node.children && node.children.length > 0) {
+        flat = flat.concat(flattenCategories(node.children)); // Add children
+      }
+    });
+    return flat;
+  };
+
+  // Memoize the result so it doesn't re-calculate unless categories change
+  const allCategories = useMemo(
+    () => flattenCategories(categories),
+    [categories],
+  );
+
   return (
     <section className="shop__collection--section section--padding">
       <div className="container">
@@ -44,17 +50,24 @@ const CategoryCollection: React.FC = () => {
             }}
             loop={true}
           >
-            {categories.map((cat) => (
-              <SwiperSlide key={cat.id}>
+            {allCategories.map((cat) => (
+              <SwiperSlide key={cat._id}>
                 <div className="shop__collection--card text-center">
-                  <Link className="shop__collection--link" to="/shop">
-                    <img
-                      className="shop__collection--img"
-                      src={cat.img}
-                      alt={cat.title}
-                    />
+                  <Link
+                    className="shop__collection--link"
+                    to={`/shop/${cat._id || ""}`}
+                  >
+                    {cat.icon ? (
+                      <img
+                        className="shop__collection--img"
+                        src={cat.icon}
+                        alt={cat.name.en}
+                      />
+                    ) : (
+                      <div className="placeholder-icon"></div> // Fallback for parent cats without icons
+                    )}
                     <h3 className="shop__collection--title mb-0">
-                      {cat.title}
+                      {cat.name.en}
                     </h3>
                   </Link>
                 </div>
@@ -100,3 +113,6 @@ const CategoryCollection: React.FC = () => {
 };
 
 export default CategoryCollection;
+
+import { useMemo } from "react";
+import type { Category } from "@/types/Category";

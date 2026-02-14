@@ -35,7 +35,6 @@ const App: React.FC = () => {
             <Route path="product-details" element={<ProductDetails />} />
 
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="contact" element={<ContactPage />} />
             <Route path="my-account" element={<Dashboard />} />
             <Route path="login" element={<LoginPage />} />
             {/* Add more routes here as you build pages */}

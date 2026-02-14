@@ -1,41 +1,33 @@
+import { useSettings } from "@/context/SettingContext";
+import type { Product } from "@/types/product";
 import React from "react";
 import { Link } from "react-router-dom";
 
-export interface Product {
-  id: number;
-  title: string;
-  price: string;
-  oldPrice?: string;
-  badge?: string;
-  primaryImg: string;
-  secondaryImg: string;
-  rating: number;
-  reviews: number;
-}
-
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
+  const { globalSettings } = useSettings();
+
   return (
     <div className="col-lg-3 col-md-4 col-sm-6 col-6 custom-col mb-30">
       <article className="product__card">
         <div className="product__card--thumbnail">
           <Link
             className="product__card--thumbnail__link display-block"
-            to={`/product/${product.id}`}
+            to={`/product/${product._id}`}
           >
             <img
               className="product__card--thumbnail__img product__primary--img"
-              src={product.primaryImg}
+              src={product.image[0]}
               alt={product.title}
             />
             <img
               className="product__card--thumbnail__img product__secondary--img"
-              src={product.secondaryImg}
+              src={product.image[1] ?? product.image[0]}
               alt={product.title}
             />
           </Link>
 
-          {product.badge && (
-            <span className="product__badge">{product.badge}</span>
+          {product.prices.discount && (
+            <span className="product__badge">{product.prices.discount}</span>
           )}
 
           <ul className="product__card--action">
@@ -136,22 +128,29 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
         <div className="product__card--content text-center">
           <ul className="rating product__card--rating d-flex justify-content-center align-items-center">
-            {renderStars(product.rating)}
+            {/* {renderStars(product.rating??3)} */}
+            {renderStars(5)}
             <li className="rating__review">
               <span className="rating__review--text">
-                ({product.reviews}) Review
+                {/* ({product.reviews}) Review */}({6}) Review
               </span>
             </li>
           </ul>
 
           <h3 className="product__card--title">
-            <Link to={`/product/${product.id}`}>{product.title}</Link>
+            <Link to={`/product/${product._id}`}>{product.title}</Link>
           </h3>
 
           <div className="product__card--price">
-            <span className="current__price">{product.price}</span>
-            {product.oldPrice && (
-              <span className="old__price"> {product.oldPrice}</span>
+            <span className="current__price">
+              {globalSettings?.default_currency}
+              {product.prices.price}
+            </span>
+            {product.prices.originalPrice && (
+              <span className="old__price">
+                {globalSettings?.default_currency}{" "}
+                {product.prices.originalPrice}
+              </span>
             )}
           </div>
         </div>

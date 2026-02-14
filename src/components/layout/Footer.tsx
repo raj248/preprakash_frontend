@@ -1,6 +1,8 @@
+import { useSettings } from "@/context/SettingContext";
 import React from "react";
 
 const Footer: React.FC = () => {
+  const { customization } = useSettings();
   return (
     <>
       <footer className="footer__section footer__bg">
@@ -34,7 +36,8 @@ const Footer: React.FC = () => {
                       <a className="footer__logo--link" href="/">
                         <img
                           className="footer__logo--img"
-                          src="/assets/logo/nav-logo.jpg"
+                          // src="/assets/logo/nav-logo.jpg"
+                          src={customization?.footer.block4_logo}
                           alt="logo-img"
                         />
                       </a>
@@ -70,9 +73,7 @@ const Footer: React.FC = () => {
                           />
                         </svg>
                         <span className="footer__widget--info__text">
-                          Shop no.06, Gaylord chowk, Jawaharlal Nehru Rd,
-                          Shastri Nagar, Pimpri Colony, Pimpri-Chinchwad,
-                          Maharashtra 411017
+                          {customization?.footer.block4_address.en}
                         </span>
                       </li>
                       <li className="footer__widget--info_list">
@@ -94,7 +95,7 @@ const Footer: React.FC = () => {
                           className="footer__widget--info__text"
                           href="tel:+1234567898"
                         >
-                          (+123) 456-7898
+                          {customization?.footer.block4_phone}
                         </a>
                       </li>
                       <li className="footer__widget--info_list">
@@ -119,9 +120,9 @@ const Footer: React.FC = () => {
                         </svg>
                         <a
                           className="footer__widget--info__text"
-                          href="mailto:example@example.com"
+                          href={"mailto:" + customization?.footer.block4_email}
                         >
-                          example@example.com
+                          {customization?.footer.block4_email}
                         </a>
                       </li>
                     </ul>

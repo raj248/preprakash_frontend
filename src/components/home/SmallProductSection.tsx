@@ -72,7 +72,11 @@ const SmallProductCard = ({ product }: any) => {
             {product.prices.price}
           </span>
           {product.prices.discount && (
-            <span className="old__price"> {product.prices.originalPrice}</span>
+            <span className="old__price">
+              {" "}
+              {globalSettings?.default_currency}
+              {product.prices.originalPrice}
+            </span>
           )}
         </div>
       </div>
