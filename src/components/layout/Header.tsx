@@ -1,16 +1,29 @@
 import { useSettings } from "@/context/SettingContext";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Header: React.FC = () => {
+  const navigate = useNavigate(); // Initialize navigate
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // State for the search input
 
   // Close everything helper
   const closeAll = () => {
     setMenuOpen(false);
     setCartOpen(false);
     setSearchOpen(false);
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // Redirect to shop with title parameter
+      navigate(`/shop?title=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchOpen(false); // Close the search box
+      setSearchQuery(""); // Clear input
+    }
   };
 
   useEffect(() => {
@@ -992,17 +1005,27 @@ const Header: React.FC = () => {
       <div className={`predictive__search--box ${searchOpen ? "active" : ""}`}>
         <div className="predictive__search--box__inner">
           <h2 className="predictive__search--title">Search Products</h2>
-          <form className="predictive__search--form" action="#">
+          <form
+            className="predictive__search--form"
+            onSubmit={handleSearchSubmit}
+          >
             <label>
               <input
                 className="predictive__search--input"
                 placeholder="Search Here"
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </label>
             <button
               className="predictive__search--button text-white"
               aria-label="search button"
+              type="submit"
+              onClick={() => {
+                setSearchOpen(false);
+                console.log("search button clicked: ");
+              }}
             >
               <svg
                 className="product__items--action__btn--svg"

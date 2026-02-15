@@ -5,32 +5,58 @@ import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper";
-
-const sliderData = [
-  {
-    id: 1,
-    title: "Jewelry to fit every budget, occasion, and taste",
-    layerImg: "/assets/slider/home3-slider1-layer.webp", // The floating image
-    bgImg: "/assets/slider/home3-slider1-bg.webp", // The background from your SCSS    img: "/assets/slider/home3-slider1-layer.webp",
-    link: "/shop",
-  },
-  {
-    id: 2,
-    title: "Elegant designs for your most precious moments",
-    layerImg: "/assets/slider/home3-slider2-layer.webp", // The floating image
-    bgImg: "/assets/slider/home3-slider1-bg.webp", // The background from your SCSS    img: "/assets/slider/home3-slider1-layer.webp",
-    link: "/shop",
-  },
-  {
-    id: 3,
-    title: "Luxury redefined with our exclusive collection",
-    layerImg: "/assets/slider/home3-slider3-layer.webp", // The floating image
-    bgImg: "/assets/slider/home3-slider1-bg.webp", // The background from your SCSS    img: "/assets/slider/home3-slider1-layer.webp",
-    link: "/shop",
-  },
-];
+import { useSettings } from "@/context/SettingContext";
+const bgImg = "/assets/slider/home3-slider1-bg.webp"; // The background from your SCSS    img: "/assets/slider/home3-slider1-layer.webp",
 
 const HeroSlider: React.FC = () => {
+  const { customization } = useSettings();
+  const slides = [
+    {
+      id: 1,
+      title: customization?.slider.first_title?.en,
+      description: customization?.slider.first_description?.en,
+      layerImg: customization?.slider.first_img,
+      bgImg: bgImg,
+      link: customization?.slider.first_link,
+      btnName: customization?.slider.first_button?.en,
+    },
+    {
+      id: 2,
+      title: customization?.slider.second_title?.en,
+      description: customization?.slider.second_description?.en,
+      layerImg: customization?.slider.second_img,
+      bgImg: bgImg,
+      link: customization?.slider.second_link,
+      btnName: customization?.slider.second_button?.en,
+    },
+    {
+      id: 3,
+      title: customization?.slider.third_title?.en,
+      description: customization?.slider.third_description?.en,
+      layerImg: customization?.slider.third_img,
+      bgImg: bgImg,
+      link: customization?.slider.third_link,
+      btnName: customization?.slider.third_button?.en,
+    },
+    {
+      id: 4,
+      title: customization?.slider.four_title?.en,
+      description: customization?.slider.four_description?.en,
+      layerImg: customization?.slider.four_img,
+      bgImg: bgImg,
+      link: customization?.slider.four_link,
+      btnName: customization?.slider.four_button?.en,
+    },
+    {
+      id: 5,
+      title: customization?.slider.five_title?.en,
+      description: customization?.slider.five_description?.en,
+      layerImg: customization?.slider.five_img,
+      bgImg: bgImg,
+      link: customization?.slider.five_link,
+      btnName: customization?.slider.five_button?.en,
+    },
+  ];
   return (
     <section className="hero__slider--section">
       <Swiper
@@ -41,40 +67,42 @@ const HeroSlider: React.FC = () => {
         loop={true}
         className="hero__slider--activation"
       >
-        {sliderData.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div
-              className="hero__slider--items"
-              style={{ backgroundImage: `url(${slide.bgImg})` }}
-            >
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-8 col-md-7 offset-lg-2">
-                    <div className="slider__content text-center">
-                      <h2 className="slider__maintitle text__secondary_dark h1">
-                        {slide.title}
-                      </h2>
-                      <Link
-                        className="primary__btn slider__btn"
-                        to={slide.link}
-                      >
-                        SHOP NOW
-                        <ArrowIcon />
-                      </Link>
+        {slides
+          .filter((slide) => slide.layerImg)
+          .map((slide) => (
+            <SwiperSlide key={slide.id}>
+              <div
+                className="hero__slider--items"
+                style={{ backgroundImage: `url(${slide.bgImg})` }}
+              >
+                <div className="container">
+                  <div className="row">
+                    <div className="col-lg-8 col-md-7 offset-lg-2">
+                      <div className="slider__content text-center">
+                        <h2 className="slider__maintitle text__secondary_dark h1">
+                          {slide.title}
+                        </h2>
+                        <Link
+                          className="primary__btn slider__btn"
+                          to={slide.link ?? "/shop"}
+                        >
+                          {slide.btnName}
+                          <ArrowIcon />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div className="hero__slider--layer style3">
+                  <img
+                    className="slider__layer--img"
+                    src={slide.layerImg}
+                    alt="slider-img"
+                  />
+                </div>
               </div>
-              <div className="hero__slider--layer style3">
-                <img
-                  className="slider__layer--img"
-                  src={slide.layerImg}
-                  alt="slider-img"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
     </section>
   );

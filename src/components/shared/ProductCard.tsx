@@ -26,7 +26,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
             />
           </Link>
 
-          {product.prices.discount && (
+          {product.prices.discount > "0" && (
             <span className="product__badge">{product.prices.discount}</span>
           )}
 
@@ -146,7 +146,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
               {globalSettings?.default_currency}
               {product.prices.price}
             </span>
-            {product.prices.originalPrice && (
+            {product.prices.discount > "0" && (
               <span className="old__price">
                 {globalSettings?.default_currency}{" "}
                 {product.prices.originalPrice}

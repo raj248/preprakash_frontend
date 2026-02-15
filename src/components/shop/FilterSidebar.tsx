@@ -1,40 +1,51 @@
+import { useCategory } from "@/hooks/useCategory";
 import React, { useState } from "react";
 
 interface FilterSidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  onFilterChange: (filters: {
+    category: string;
+    minPrice: number;
+    maxPrice: number;
+  }) => void;
 }
 
-const FilterSidebar: React.FC<FilterSidebarProps> = ({ isOpen, onClose }) => {
+const FilterSidebar: React.FC<FilterSidebarProps> = ({
+  isOpen,
+  onClose,
+  onFilterChange,
+}) => {
   // State to handle the Accordion for Categories
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 0 });
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
-  const toggleCategory = (name: string) => {
-    setActiveCategory(activeCategory === name ? null : name);
+  // const handlePriceSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   onFilterChange({
+  //     category: selectedSlug || "",
+  //     minPrice: priceRange.min,
+  //     maxPrice: priceRange.max,
+  //   });
+  // };
+
+  const handleCategoryClick = (slug: string) => {
+    setPriceRange({ min: 0, max: 0 });
+    setActiveCategory(activeCategory === slug ? null : slug);
+    setSelectedSlug(slug);
+    onFilterChange({
+      category: slug,
+      minPrice: priceRange.min,
+      maxPrice: priceRange.max,
+    });
   };
 
-  const categories = [
-    {
-      name: "Fairness cream",
-      img: "/assets/product/small-product/product1.webp",
-    },
-    {
-      name: "Skin Silver",
-      img: "/assets/product/small-product/product2.webp",
-    },
-    {
-      name: "Night Serum",
-      img: "/assets/product/small-product/product3.webp",
-    },
-    {
-      name: "Cream Oil",
-      img: "/assets/product/small-product/product4.webp",
-    },
-    {
-      name: "Skin Cleaner",
-      img: "/assets/product/small-product/product5.webp",
-    },
-  ];
+  const { categories, loading } = useCategory();
+
+  if (loading || !categories || categories.length === 0) {
+    return <div>Loading categories...</div>; // Or a skeleton loader
+  }
 
   return (
     <div
@@ -46,22 +57,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ isOpen, onClose }) => {
         className="offcanvas__filter--close"
         onClick={onClose}
       >
-        <svg
-          className="minicart__close--icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          width="25"
-          height="25"
-        >
-          <path
-            fill="currentColor"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="32"
-            d="M368 368L144 144M368 144L144 368"
-          ></path>
-        </svg>
+        <CloseButton />
         <span className="offcanvas__filter--close__text">Close</span>
       </button>
 
@@ -70,151 +66,153 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ isOpen, onClose }) => {
         <div className="single__widget widget__bg">
           <h2 className="widget__title h3">Categories</h2>
           <ul className="widget__categories--menu">
-            {categories.map((cat) => (
-              <li className="widget__categories--menu__list" key={cat.name}>
-                <label
-                  className={`widget__categories--menu__label d-flex align-items-center ${activeCategory === cat.name ? "active" : ""}`}
-                  onClick={() => toggleCategory(cat.name)}
-                >
-                  <img
-                    className="widget__categories--menu__img"
-                    src={cat.img}
-                    alt={cat.name}
-                  />
-                  <span className="widget__categories--menu__text">
-                    {cat.name}
-                  </span>
-                  <svg
-                    className={`widget__categories--menu__arrowdown--icon ${activeCategory === cat.name ? "rotated" : ""}`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="8"
-                  >
-                    <path
-                      d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z"
-                      transform="translate(-6 -8.59)"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </label>
+            {/* All */}
+            <li className="widget__categories--menu__list" key={0}>
+              <label
+                className="widget__categories--menu__label d-flex align-items-center"
+                onClick={() =>
+                  onFilterChange({
+                    category: "",
+                    minPrice: priceRange.min,
+                    maxPrice: priceRange.max,
+                  })
+                }
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  className="widget__categories--menu__img"
+                  src="assets/icon/icon-img3.webp"
+                  alt="All Categories"
+                />
+                <span className="widget__categories--menu__text">
+                  All Categories
+                </span>
+              </label>
+            </li>
 
-                {/* Submenu displays only if active */}
-                <ul
-                  className="widget__categories--sub__menu"
-                  style={{
-                    display: activeCategory === cat.name ? "block" : "none",
-                  }}
-                >
-                  <SubMenuItem
-                    label="Massage Cream"
-                    img="/assets/product/small-product/product2.webp"
-                  />
-                  <SubMenuItem
-                    label="Matte Walnut"
-                    img="/assets/product/small-product/product3.webp"
-                  />
-                  {/* ... add more as needed */}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Dietary Needs (Checkboxes) */}
-        <div className="single__widget widget__bg">
-          <h2 className="widget__title h3">Dietary Needs</h2>
-          <ul className="widget__form--check">
-            {["Bath & Body", "Hair Care", "Make Up", "Health Care"].map(
-              (item, idx) => (
-                <li className="widget__form--check__list" key={idx}>
+            {categories &&
+              categories[0].children?.map((cat) => (
+                <li className="widget__categories--menu__list" key={cat._id}>
                   <label
-                    className="widget__form--check__label"
-                    htmlFor={`check${idx}`}
+                    className={`widget__categories--menu__label d-flex align-items-center ${activeCategory === cat.name.en ? "active" : ""}`}
+                    onClick={() => handleCategoryClick(cat._id)}
                   >
-                    {item}
+                    <img
+                      className="widget__categories--menu__img"
+                      src={cat.icon}
+                      alt={cat.name.en}
+                    />
+                    <span className="widget__categories--menu__text">
+                      {cat.name.en}
+                    </span>
+                    <svg
+                      className={`widget__categories--menu__arrowdown--icon ${activeCategory === cat._id ? "rotated" : ""}`}
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="8"
+                    >
+                      <path
+                        d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z"
+                        transform="translate(-6 -8.59)"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
                   </label>
-                  <input
-                    className="widget__form--check__input"
-                    id={`check${idx}`}
-                    type="checkbox"
-                  />
-                  <span className="widget__form--checkmark"></span>
+
+                  {/* Submenu displays only if active, show category childrens*/}
+                  <ul
+                    className="widget__categories--sub__menu"
+                    style={{
+                      display: activeCategory === cat._id ? "block" : "none",
+                    }}
+                  >
+                    {cat.children?.map((child) => (
+                      <li
+                        key={child._id}
+                        className="widget__categories--sub__menu--list"
+                      >
+                        <button
+                          className={`widget__categories--sub__menu--link d-flex align-items-center border-0 bg-transparent ${selectedSlug === child._id ? "text-primary" : ""}`}
+                          onClick={() => {
+                            setSelectedSlug(child._id || "");
+                            onFilterChange({
+                              category: child._id || "",
+                              minPrice: priceRange.min,
+                              maxPrice: priceRange.max,
+                            });
+                          }}
+                        >
+                          <img
+                            className="widget__categories--sub__menu--img"
+                            src={child.icon}
+                            alt={child.name.en}
+                          />
+                          <span className="widget__categories--sub__menu--text">
+                            {child.name.en}
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
-              ),
-            )}
+              ))}
           </ul>
         </div>
 
         {/* Price Filter */}
-        <div className="single__widget price__filter widget__bg">
-          <h2 className="widget__title h3">Filter By Price</h2>
-          <form
-            className="price__filter--form"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <div className="price__filter--form__inner mb-15 d-flex align-items-center">
-              <PriceInput label="From" id="gte" placeholder="0" />
-              <div className="price__divider">
-                <span>-</span>
-              </div>
-              <PriceInput label="To" id="lte" placeholder="250.00" />
-            </div>
-            <button className="primary__btn price__filter--btn" type="submit">
-              Filter
-            </button>
-          </form>
-        </div>
-
-        {/* Brand Tags */}
-        <div className="single__widget widget__bg">
-          <h2 className="widget__title h3">Brands</h2>
-          <ul className="widget__tagcloud">
-            {["Hair Care", "Make Up", "Skin Care", "Fairness"].map((tag) => (
-              <li className="widget__tagcloud--list" key={tag}>
-                <a className="widget__tagcloud--link" href="#">
-                  {tag}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul
+          className="widget__categories--sub__menu"
+          style={{
+            display: activeCategory === categories[0]._id ? "block" : "none",
+          }}
+        >
+          {categories[0].children?.map((child) => (
+            <li key={child._id} className="widget__categories--sub__menu--list">
+              <button
+                className={`widget__categories--sub__menu--link d-flex align-items-center border-0 bg-transparent ${selectedSlug === child._id ? "text-primary" : ""}`}
+                onClick={() => {
+                  setSelectedSlug(child._id || "");
+                  onFilterChange({
+                    category: child._id || "",
+                    minPrice: priceRange.min,
+                    maxPrice: priceRange.max,
+                  });
+                }}
+              >
+                <img
+                  className="widget__categories--sub__menu--img"
+                  src={child.icon}
+                  alt={child.name.en}
+                />
+                <span className="widget__categories--sub__menu--text">
+                  {child.name.en}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 };
 
-// Helper Sub-Components
-const SubMenuItem = ({ label, img }: { label: string; img: string }) => (
-  <li className="widget__categories--sub__menu--list">
-    <a
-      className="widget__categories--sub__menu--link d-flex align-items-center"
-      href="#"
-    >
-      <img
-        className="widget__categories--sub__menu--img"
-        src={img}
-        alt={label}
-      />
-      <span className="widget__categories--sub__menu--text">{label}</span>
-    </a>
-  </li>
-);
-
-const PriceInput = ({ label, id, placeholder }: any) => (
-  <div className="price__filter--group">
-    <label className="price__filter--label" htmlFor={id}>
-      {label}
-    </label>
-    <div className="price__filter--input border-radius-5 d-flex align-items-center">
-      <span className="price__filter--currency">$</span>
-      <input
-        className="price__filter--input__field border-0"
-        id={id}
-        type="number"
-        placeholder={placeholder}
-      />
-    </div>
-  </div>
+const CloseButton = () => (
+  <svg
+    className="minicart__close--icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    width="25"
+    height="25"
+  >
+    <path
+      fill="currentColor"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="32"
+      d="M368 368L144 144M368 144L144 368"
+    ></path>
+  </svg>
 );
 
 export default FilterSidebar;

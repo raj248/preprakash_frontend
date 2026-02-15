@@ -55,7 +55,7 @@ const CategoryCollection: React.FC = () => {
                 <div className="shop__collection--card text-center">
                   <Link
                     className="shop__collection--link"
-                    to={`/shop/${cat._id || ""}`}
+                    to={`/shop-grid?category=${cat._id || ""}`}
                   >
                     {cat.icon ? (
                       <img

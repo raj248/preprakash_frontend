@@ -26,6 +26,8 @@ export const useProduct = () => {
       price: el.prices?.price,
     },
     tag: el.tag || [],
+    createdAt: el.createdAt,
+    updatedAt: el.updatedAt,
   });
 
   // Fetch all showing products
@@ -57,11 +59,33 @@ export const useProduct = () => {
     }
   };
 
+  const getShowingStoreProducts = async (params: {
+    category?: string;
+    title?: string;
+    slug?: string;
+  }): Promise<Product[]> => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await ProductServices.getShowingStoreProducts(params);
+      // Assuming the response contains a products array based on GetShowingStoreProductsResponse
+      const formattedData = response.products.map(mapProduct);
+      return formattedData;
+    } catch (err: any) {
+      setError(err.message || "Failed to fetch store products");
+      return [];
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return {
     products,
     loading,
     error,
+    setProducts,
     fetchShowingProducts,
     getProductBySlug,
+    getShowingStoreProducts,
   };
 };

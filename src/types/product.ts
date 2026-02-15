@@ -15,6 +15,8 @@ export interface Product {
     price: number;
   };
   tag: string[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface GetShowingStoreProductsResponse {

@@ -289,32 +289,45 @@ hr {
 
 
 
+/* Mobile (Extra Small) remains default 100% */
+
 @media only screen and (min-width: 576px) {
   .container {
-    max-width: 576px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .container {
-    max-width: 992px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-  }
-}
-@media only screen and (min-width: 1366px) {
-  .container {
-    max-width: 1290px;
+    max-width: 540px; /* Standard Bootstrap-style padding */
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px; 
+  }
+}
+
+/* This is where you likely want the most change */
+@media only screen and (min-width: 1366px) {
+  .container {
+    max-width: 1320px; /* Increased from 1290px */
+  }
+}
+
+/* For ultra-wide screens, let's allow it to expand further */
+@media only screen and (min-width: 1600px) {
+  .container {
+    max-width: 1520px; 
+  }
+}
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   padding-right: var(--bs-gutter-x,1.5rem);
@@ -919,7 +932,7 @@ body.overlay__active::before,
 }
 
 /* Section margin */
-.section--nargin {
+.section--margin {
   margin-top: 5rem;
   margin-bottom: 5rem;
   @media only screen and (min-width: 768px) {

@@ -1,32 +1,14 @@
+import { useSettings } from "@/context/SettingContext";
+import type { Product } from "@/types/product";
 import React from "react";
 import { Link } from "react-router-dom";
 
-interface ProductProps {
-  id: number;
-  title: string;
-  price: string;
-  oldPrice?: string;
-  badge?: string;
-  primaryImg: string;
-  secondaryImg: string;
-  rating: number;
-  reviews: number;
-  viewMode: "grid" | "list";
-}
-
-const ProductCard: React.FC<ProductProps> = ({
-  title,
-  price,
-  oldPrice,
-  badge,
-  primaryImg,
-  secondaryImg,
-  rating,
-  reviews,
+const ProductCard: React.FC<Product & { viewMode: string }> = ({
   viewMode,
+  ...product
 }) => {
   const isList = viewMode === "list";
-
+  const { globalSettings } = useSettings();
   return (
     <article
       className={`product__card ${isList ? "product__list d-flex align-items-center" : ""}`}
@@ -36,20 +18,24 @@ const ProductCard: React.FC<ProductProps> = ({
       >
         <Link
           className="product__card--thumbnail__link display-block"
-          to="/product-details"
+          to={`/product-details?slug=${product.slug}`}
         >
           <img
             className="product__card--thumbnail__img product__primary--img"
-            src={primaryImg}
-            alt={title}
+            src={product.image[0]}
+            alt={product.title}
           />
           <img
             className="product__card--thumbnail__img product__secondary--img"
-            src={secondaryImg}
-            alt={title}
+            src={product.image[1] || product.image[0]}
+            alt={product.title}
           />
         </Link>
-        {badge && <span className="product__badge">{badge}</span>}
+        {product.prices.discount > "0" && (
+          <span className="product__badge text-base">
+            {product.prices.discount}% Off
+          </span>
+        )}
 
         {/* Action Buttons (QuickView, Wishlist, etc) */}
         <ul className="product__card--action">
@@ -141,25 +127,28 @@ const ProductCard: React.FC<ProductProps> = ({
       <div
         className={`product__card--content ${isList ? "product__list--content" : "text-center"}`}
       >
-        <Rating
-          rating={rating}
-          reviews={reviews}
-          align={isList ? "start" : "center"}
-        />
+        <Rating rating={4} reviews={5} align={isList ? "start" : "center"} />
         <h3 className="product__card--title">
-          <Link to="/product-details">{title}</Link>
+          <Link to="/product-details">{product.title}</Link>
         </h3>
         <div
           className={`product__card--price ${isList ? "product__list--price" : ""}`}
         >
-          <span className="current__price">{price}</span>
-          {oldPrice && <span className="old__price">{oldPrice}</span>}
+          <span className="current__price">
+            {globalSettings?.default_currency}
+            {product.prices.price}
+          </span>
+          {product.prices.discount > "0" && (
+            <span className="old__price">
+              {globalSettings?.default_currency}
+              {product.prices.originalPrice}
+            </span>
+          )}
         </div>
 
         {isList && (
           <p className="product__card--content__desc mb-20">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            necessitatibus placeat unde...
+            {product.description}
           </p>
         )}
 

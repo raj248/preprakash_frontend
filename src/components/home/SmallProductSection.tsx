@@ -71,7 +71,7 @@ const SmallProductCard = ({ product }: any) => {
             {globalSettings?.default_currency}
             {product.prices.price}
           </span>
-          {product.prices.discount && (
+          {product.prices.discount > "0" && (
             <span className="old__price">
               {" "}
               {globalSettings?.default_currency}
